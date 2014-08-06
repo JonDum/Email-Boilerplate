@@ -108,16 +108,8 @@ module.exports = function(grunt) {
                 tasks: ['preprocess:html']
             },
             stylus: {
-                files: ['css/**/*.styl'],
+                files: ['css/**/*.styl', 'emails/**/*.styl'],
                 tasks: ['stylus:development']
-            },
-            js: {
-                files: ['js/**/*.js'],
-                tasks: ['webpack:development']
-            },
-            static: {
-                files: ['static/**/*'],
-                tasks: ['rsync:static']
             }
         }
     });
@@ -134,4 +126,3 @@ module.exports = function(grunt) {
     grunt.registerTask('production', ['clean', 'preprocess:production', 'stylus:production', 'uncss:production', 'csso', 'emailBuilder:production']);
 
 };
-
